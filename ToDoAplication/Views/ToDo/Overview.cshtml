@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ToDo>
+
+<h1>ToDo Items</h1>
+
+<div>
+    <h4>Filter Options</h4>
+    <a asp-action="Overview" asp-route-filterBy="completed">Completed</a> |
+    <a asp-action="Overview" asp-route-filterBy="notcompleted">Not Completed</a> |
+    <a asp-action="Overview">All</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Overview" asp-route-sortBy="title">Title</a>
+                |
+                <a asp-action="Overview" asp-route-sortBy="title_desc">▼</a>
+            </th>
+            <th>
+                <a asp-action="Overview" asp-route-sortBy="description">Description</a>
+                |
+                <a asp-action="Overview" asp-route-sortBy="description_desc">▼</a>
+            </th>
+            <th>Due Date</th>
+            <th>Is Completed</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.DueDate?.ToString("yyyy-MM-dd")</td>
+                <td>@item.IsCompleted</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

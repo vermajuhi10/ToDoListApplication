@@ -1,0 +1,26 @@
+﻿@model ToDo
+
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+<h3>Are you sure you want to delete this item?</h3>
+
+<form asp-action ="Delete" method="post">
+	<div class="form-group">
+		<label asp-for="Title"></label>
+		<p>@Model.Title</p>
+	</div>
+	<div class="form-group">
+		<label asp-for="Description"></label>
+		<p>@Model.Description</p>
+		</div>
+
+	<div class="form-group">
+		<input type="hidden" asp-for="Id" />
+		<button type="submit" class="btn btn-danger">Delete</button>
+		<a href="@Url.Action("Overview")">Cancel</a>
+	</div>
+
+</form>
