@@ -55,6 +55,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 - Authentication /Authorization
 - Schedule notifications/reminders
 - Export tasks to CSV or JSON format
+- Test cases
 
 👤 Author
 Juhi Verma
